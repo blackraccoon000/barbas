@@ -1,0 +1,9 @@
+version: "2"
+services:
+  devcontainer:
+    container_name: python-dev
+    build:
+      context: .
+    tty: true
+    volumes:
+      - ..:/workspace

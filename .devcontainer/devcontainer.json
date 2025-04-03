@@ -1,0 +1,40 @@
+{
+  "name": "Python:dev",
+  "dockerComposeFile": ["./docker-compose.yml"],
+  "service": "devcontainer",
+  // pipenvのインストールとvenv環境の適応
+  "postCreateCommand": "pipenv sync --dev && pipenv --venv > .venv_path",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-python.python",
+        "ms-python.flake8",
+        "xirider.livecode",
+        "ms-python.black-formatter",
+        "usernamehw.errorlens"
+      ],
+      "settings": {
+        // 自動でPythonのインタプリタをvenvのものに適応する
+        "python.defaultInterpreterPath": "${workspaceFolder}/.venv_path/bin/python",
+        "black-formatter.interpreter": [
+            "python"
+        ],
+        "flake8.interpreter": [
+            "python"
+        ],
+        "flake8.args": ["--config=.flake8"],
+        "python.linting.flake8Enabled": true, // Flake8 を有効化
+        "python.formatting.provider": "black",
+        "[python]": {
+            "editor.defaultFormatter": "ms-python.black-formatter",
+            "editor.formatOnSave": true,
+            "editor.indentSize": 4
+        },
+        "editor.indentSize": 2
+      }
+    }
+  },
+  "workspaceFolder": "/workspace",
+  "remoteUser": "root"
+}
