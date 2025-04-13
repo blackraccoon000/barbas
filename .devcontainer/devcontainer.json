@@ -12,7 +12,9 @@
         "ms-python.flake8",
         "xirider.livecode",
         "ms-python.black-formatter",
-        "usernamehw.errorlens"
+        "usernamehw.errorlens",
+        "almenon.arepl",
+        "formulahendry.code-runner"
       ],
       "settings": {
         // 自動でPythonのインタプリタをvenvのものに適応する
